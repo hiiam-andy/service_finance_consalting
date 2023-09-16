@@ -12,7 +12,7 @@ class typeController {
   }
   async update(req, res) {
     const { name, newName } = req.body;
-    const type = await Type.update({ name: newName }, { where: { name } });
+    await Type.update({ name: newName }, { where: { name } });
     return res.json({ message: "Изменено" });
   }
   async delete(req, res) {

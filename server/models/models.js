@@ -11,7 +11,7 @@ const User = sequelize.define("user", {
 const Cart = sequelize.define("cart", {
   id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
   userId: { type: DataTypes.INTEGER, allowNull: false },
-  productId: { type: DataTypes.INTEGER, allowNull: false },
+  productId: { type: DataTypes.INTEGER },
   quantity: { type: DataTypes.INTEGER, defaultValue: 1 },
 });
 
