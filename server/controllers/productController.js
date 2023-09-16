@@ -26,7 +26,23 @@ class deviceController {
     }
   }
 
-  async getAll(req, res) {}
+  async getAll(req, res) {
+    const { brandId, typeId } = req.query;
+    let product;
+    if (!brandId && !typeId) {
+      product = await Product.findAll();
+    }
+    if (brandId && !typeId) {
+      product = await Product.findAll({ where: { brandId } });
+    }
+    if (!brandId && typeId) {
+      product = await Product.findAll({ where: { typeId } });
+    }
+    if (brandId && typeId) {
+      product = await Product.findAll({ where: { typeId, brandId } });
+    }
+    return res.json(product);
+  }
 
   async getOne(req, res) {
     const { id } = req.params;
@@ -34,6 +50,14 @@ class deviceController {
     return res.json(product);
   }
 
-  async delete(req, res) {}
+  async delete(req, res) {
+    try {
+      const { id } = req.body;
+      await Product.destroy({ where: { id } });
+      return res.json({ message: `Продукт с id=${id} удалён` });
+    } catch (err) {
+      return res.json({ message: `Продукт с id=${id} не найден` });
+    }
+  }
 }
 module.exports = new deviceController();
