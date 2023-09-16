@@ -2,6 +2,7 @@ const uuid = require("uuid");
 const ApiError = require("../error/apiError");
 const { Product } = require("../models/models");
 const path = require("path");
+var fs = require("fs");
 
 class deviceController {
   async create(req, res, next) {
@@ -53,6 +54,9 @@ class deviceController {
   async delete(req, res) {
     try {
       const { id } = req.body;
+      const product = await Product.findAll({ where: { id } });
+      const fileName = product[0].img;
+      fs.rm(path.resolve(__dirname, "..", "static", fileName));
       await Product.destroy({ where: { id } });
       return res.json({ message: `Продукт с id=${id} удалён` });
     } catch (err) {
