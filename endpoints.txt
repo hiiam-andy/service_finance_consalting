@@ -1,0 +1,21 @@
+/api 
+* - требуется авторизация
+
+POST/api/user/registration
+POST/api/user/login
+GET/api/user/auth
+
+POST/api/type*
+GET/api/type
+PUT/api/type*
+DELETE/api/type*
+
+POST/api/brand*
+GET/api/brand
+PUT/api/brand*
+DELETE/api/brand*
+
+POST/api/product*
+GET/api/product
+GET/api/product/{id}
+DELETE/api/product*
