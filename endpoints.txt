@@ -19,3 +19,6 @@ POST/api/product*
 GET/api/product
 GET/api/product/{id}
 DELETE/api/product*
+
+POST/user/:userId/cart
+GET/user/:userId/cart

@@ -1,7 +1,14 @@
 import { FC } from "react";
+import { BrowserRouter } from "react-router-dom";
+import AppRouter from "../pages/AppRouter";
+import "./styles.css";
 
 const App: FC = () => {
-  return <div>hi</div>;
+  return (
+    <BrowserRouter>
+      <AppRouter />
+    </BrowserRouter>
+  );
 };
 
 export default App;
