@@ -18,7 +18,7 @@ const Product = sequelize.define("product", {
   price: { type: DataTypes.INTEGER, allowNull: false },
   img: { type: DataTypes.STRING, allowNull: false },
   info: { type: DataTypes.STRING, allowNull: false },
-  quantity: { type: DataTypes.INTEGER },
+  quantity: { type: DataTypes.INTEGER, allowNull: false },
 });
 const BasketProduct = sequelize.define("basket_product", {
   id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
