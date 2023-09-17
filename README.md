@@ -1,6 +1,6 @@
 Тестовое задание на позицию fullstack разработчик для ООО Сервис Финанс Консалтинг
 
-<div style='font-size: 12px'>
+<div style="font-size: 12px">
 Необходимо применить:
 
 - TypeScript
