@@ -5,7 +5,6 @@ import { RootState } from "../../../app/store";
 
 interface productType {
   list: [{
-
     id: number,
     name: string,
     price: number,
@@ -15,6 +14,12 @@ interface productType {
     brandId: number,
     img: string
   }]
+}
+interface props {
+  typeId: number | null,
+  brandId: number | null,
+  limit?: number,
+  page?: number
 }
 
 const initialState: productType = {
@@ -33,14 +38,16 @@ const initialState: productType = {
 
 export const getProducts = createAsyncThunk(
   "products/getProducts",
-  async (_, thunkAPI) => {
+  async ({ typeId, brandId, limit, page }: props) => {
     try {
-      const res = await axios(`${BASE_URL}/api/product`);
+      const res = await axios(`${BASE_URL}/api/product`, {
+        params: { typeId, brandId, limit, page }
+      });
 
       return res.data;
     } catch (err) {
       console.log(err);
-      return thunkAPI.rejectWithValue(err);
+
     }
   }
 );

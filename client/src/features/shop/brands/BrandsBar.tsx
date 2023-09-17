@@ -1,6 +1,10 @@
 import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../../app/hooks";
-import { BrandsList, getBrands } from "./brandsApi/brandSlice";
+import {
+  BrandsList,
+  getBrands,
+  setSelectedBrand,
+} from "./brandsApi/brandSlice";
 
 export default function BrandsBar() {
   const brands = useAppSelector(BrandsList);
@@ -13,7 +17,11 @@ export default function BrandsBar() {
   return (
     <ul style={{ display: "flex" }}>
       {brands.map((el) => (
-        <li key={el.id} style={{ border: "1px solid gray", cursor: "pointer" }}>
+        <li
+          key={el.id}
+          style={{ border: "1px solid gray", cursor: "pointer" }}
+          onClick={() => dispatch(setSelectedBrand(el.id))}
+        >
           {el.name}
         </li>
       ))}

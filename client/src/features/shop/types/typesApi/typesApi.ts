@@ -18,8 +18,7 @@ export const addType = async (name: string) => {
 // export const deleteType = async (name: string) => {
 //   try {
 //     await axios.delete(`${BASE_URL}/api/type`,
-//       { name },
-//       {
+//       { name:{name},
 //         headers: {
 //           Authorization: `Bearer ${localStorage.getItem('token')}`
 //         }

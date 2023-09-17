@@ -19,8 +19,8 @@ class cartController {
     }
   }
   async getCart(req, res) {
+    const { userId } = req.query;
     try {
-      const { userId } = req.body;
       const cartItem = await Cart.findAll({ where: { userId } });
       return res.json(cartItem);
     } catch (err) {

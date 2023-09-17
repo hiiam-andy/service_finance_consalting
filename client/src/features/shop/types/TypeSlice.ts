@@ -5,12 +5,14 @@ import { RootState } from "../../../app/store";
 
 interface TypesSlice {
   list: [{
-    id: number,
+    id?: number,
     name?: string
-  }]
+  }],
+  selectedType: number | null
 }
 const initialState: TypesSlice = {
-  list: [{ id: 0 }]
+  list: [{ id: 0 }],
+  selectedType: null
 }
 
 export const getTypes = createAsyncThunk(
@@ -29,7 +31,11 @@ export const getTypes = createAsyncThunk(
 const typeSlice = createSlice({
   name: 'types',
   initialState,
-  reducers: {},
+  reducers: {
+    setSelectedType: (state, action) => {
+      state.selectedType = action.payload
+    }
+  },
   extraReducers: (builder) => {
     builder.addCase(getTypes.fulfilled, (state, action) => {
       state.list = action.payload
@@ -38,5 +44,6 @@ const typeSlice = createSlice({
 })
 
 export const TypesList = (state: RootState) => state.types.list
-
+export const selectedTypesList = (state: RootState) => state.types.selectedType
+export const { setSelectedType } = typeSlice.actions;
 export default typeSlice.reducer

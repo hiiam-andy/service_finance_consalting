@@ -11,6 +11,6 @@ router.use("/user", userRouter);
 router.use("/type", typeRouter);
 router.use("/brand", brandRouter);
 router.use("/product", productRouter);
-router.use("/user/:userId/cart", cartController);
+router.use("/cart", cartController);
 
 module.exports = router;

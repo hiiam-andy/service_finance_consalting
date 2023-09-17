@@ -31,6 +31,10 @@ export default function AddProduct() {
     fd.append("typeId", `${typeValue}`);
     fd.append("img", img);
     addProduct(fd);
+    setName("");
+    setPrice("");
+    setInfo("");
+    setQuantity("");
   };
 
   return (

@@ -5,3 +5,16 @@
   padding: 15px;
   background-color: cadetblue;
 }
+.logo{
+  text-decoration: none;
+  color:white;
+  
+}
+.link{
+  border: 2px solid white; 
+  padding: 5px 15px;
+  margin-left: 5px;
+  border-radius: 15px;
+  text-decoration: none;
+  color:white;
+}

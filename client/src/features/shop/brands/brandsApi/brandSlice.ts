@@ -6,12 +6,14 @@ import { BASE_URL } from "../../../../utils/constats";
 
 interface BrandSlice {
   list: [{
-    id: number,
+    id?: number,
     name?: string
-  }]
+  }],
+  selectedBrand: number | null
 }
 const initialState: BrandSlice = {
-  list: [{ id: 0 }]
+  list: [{ id: 0 }],
+  selectedBrand: null
 }
 
 export const getBrands = createAsyncThunk(
@@ -30,7 +32,11 @@ export const getBrands = createAsyncThunk(
 const brandSlice = createSlice({
   name: 'brands',
   initialState,
-  reducers: {},
+  reducers: {
+    setSelectedBrand: (state, action) => {
+      state.selectedBrand = action.payload
+    }
+  },
   extraReducers: (builder) => {
     builder.addCase(getBrands.fulfilled, (state, action) => {
       state.list = action.payload
@@ -39,5 +45,6 @@ const brandSlice = createSlice({
 })
 
 export const BrandsList = (state: RootState) => state.brands.list
-
+export const selectedBrandsList = (state: RootState) => state.brands.selectedBrand
+export const { setSelectedBrand } = brandSlice.actions;
 export default brandSlice.reducer
