@@ -9,7 +9,7 @@ export default function PageShop() {
       <Header />
       <div style={{ display: "flex" }}>
         <TypesBar />
-        <div>
+        <div style={{ marginLeft: "15px" }}>
           <BrandsBar />
           <Products />
         </div>

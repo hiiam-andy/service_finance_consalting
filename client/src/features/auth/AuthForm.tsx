@@ -59,7 +59,10 @@ export default function AuthForm() {
       </div>
       <div>
         {toggle ? "Нет аккаунта?" : "Есть аккаунт?"}{" "}
-        <span onClick={() => setToggle(!toggle)}>
+        <span
+          onClick={() => setToggle(!toggle)}
+          style={{ cursor: "pointer", color: "blue" }}
+        >
           {toggle ? "Зарегистрировать" : "Войти"}
         </span>
       </div>

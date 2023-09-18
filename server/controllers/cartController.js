@@ -3,7 +3,7 @@ const { Cart, User, Product } = require("../models/models");
 class cartController {
   async addToCart(req, res) {
     try {
-      const { userId, productId } = req.body;
+      const { userId, productId, quantity } = req.body;
       const product = await Product.findByPk(productId);
       const user = await User.findByPk(userId);
       if (!product || !user) {
@@ -11,9 +11,8 @@ class cartController {
           .status(200)
           .json({ message: "Пользователь или товар не найдены" });
       }
-
-      const productInCart = await Cart.create({ userId, productId });
-      return res.ststus(200).json(productInCart);
+      const productInCart = await Cart.create({ userId, productId, quantity });
+      return res.status(200).json(productInCart);
     } catch (err) {
       return res.status(500).json({ message: "Что-то пошло не так" });
     }

@@ -14,9 +14,9 @@ export default function PageCart() {
     dispatch(getCart(String(id)));
   }, [dispatch]);
   const cart = useAppSelector(CartList);
-  console.log(cart);
+
   let res;
-  if (cart.length > 1) {
+  if (cart.length > 0) {
     res = (
       <ul>
         {cart.map((el) => (
@@ -24,7 +24,7 @@ export default function PageCart() {
             key={el.id}
             style={{ border: "1px solid gray", cursor: "pointer" }}
           >
-            {el.userId}
+            должен быть продукт с айди {el.productId}
           </li>
         ))}
       </ul>
@@ -34,7 +34,6 @@ export default function PageCart() {
     <div>
       <Header />
       {res}
-      PageCart
     </div>
   );
 }

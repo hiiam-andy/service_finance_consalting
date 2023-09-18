@@ -11,16 +11,25 @@ export default function TypesBar() {
   }, [dispatch]);
 
   return (
-    <ul>
-      {types.map((el) => (
+    <div>
+      <strong>Выберите тип</strong>
+      <ul>
         <li
-          key={el.id}
           style={{ border: "1px solid gray", cursor: "pointer" }}
-          onClick={() => dispatch(setSelectedType(el.id))}
+          onClick={() => dispatch(setSelectedType(null))}
         >
-          {el.name}
+          Показать все
         </li>
-      ))}
-    </ul>
+        {types.map((el) => (
+          <li
+            key={el.id}
+            style={{ border: "1px solid gray", cursor: "pointer" }}
+            onClick={() => dispatch(setSelectedType(el.id))}
+          >
+            {el.name}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }

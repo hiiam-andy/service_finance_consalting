@@ -15,16 +15,25 @@ export default function BrandsBar() {
   }, [dispatch]);
 
   return (
-    <ul style={{ display: "flex" }}>
-      {brands.map((el) => (
+    <div>
+      <strong>Выберите бренд</strong>
+      <ul style={{ display: "flex" }}>
         <li
-          key={el.id}
           style={{ border: "1px solid gray", cursor: "pointer" }}
-          onClick={() => dispatch(setSelectedBrand(el.id))}
+          onClick={() => dispatch(setSelectedBrand(null))}
         >
-          {el.name}
+          Показать все
         </li>
-      ))}
-    </ul>
+        {brands.map((el) => (
+          <li
+            key={el.id}
+            style={{ border: "1px solid gray", cursor: "pointer" }}
+            onClick={() => dispatch(setSelectedBrand(el.id))}
+          >
+            {el.name}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }

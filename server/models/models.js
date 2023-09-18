@@ -10,9 +10,9 @@ const User = sequelize.define("user", {
 
 const Cart = sequelize.define("cart", {
   id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-  userId: { type: DataTypes.INTEGER, allowNull: false },
+  userId: { type: DataTypes.INTEGER },
   productId: { type: DataTypes.INTEGER },
-  quantity: { type: DataTypes.INTEGER, defaultValue: 1 },
+  quantity: { type: DataTypes.INTEGER },
 });
 
 const Product = sequelize.define("product", {

@@ -1,20 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../../app/store";
 
+
 interface authType {
+  isAdmin: boolean,
   isAuth: boolean,
   userList:
   {
     id?: number,
     email?: string,
-    role: string
+    role?: string
   }
-
 }
 
 const initialState: authType = {
+  isAdmin: false,
   isAuth: false,
-  userList: { role: "ADMIN" }
+  userList: {}
 }
 
 const authSlice = createSlice({
@@ -27,7 +29,7 @@ const authSlice = createSlice({
     setUser: (state, action) => {
       state.userList = action.payload
     }
-  }
+  },
 })
 
 export const userIsAuth = (state: RootState) => state.user.isAuth
