@@ -1,8 +1,6 @@
 import axios from "axios"
 import jwt_decode from "jwt-decode";
 import { BASE_URL } from "../../../utils/constats"
-import { $authHost } from "../../../utils/interceptor";
-
 
 export const registration = async (email: string, password: string) => {
   try {

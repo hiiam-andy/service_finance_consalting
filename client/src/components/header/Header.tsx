@@ -12,6 +12,7 @@ import { user } from "../../features/auth/http/authSlice";
 
 export default function Header() {
   const userList = useAppSelector(user);
+
   return (
     <div className={styles.header}>
       <NavLink to={SHOP_ROUTE} className={styles.logo}>
@@ -24,7 +25,7 @@ export default function Header() {
         <NavLink to={CART_ROUTE} className={styles.link}>
           Корзина
         </NavLink>
-        {userList.role === "ADMIN" && (
+        {userList && userList.role === "ADMIN" && (
           <NavLink to={ADMIN_ROUTE} className={styles.link}>
             Админ
           </NavLink>
