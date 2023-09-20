@@ -3,11 +3,11 @@
   justify-content: space-between;
   align-items: center;
   padding: 15px;
-  background-color: cadetblue;
+  background-color: #fff;
 }
 .logo{
   text-decoration: none;
-  color:white;
+  color:#3c3c3c;
   
 }
 .link{
@@ -16,5 +16,5 @@
   margin-left: 5px;
   border-radius: 15px;
   text-decoration: none;
-  color:white;
+  color:#3c3c3c;
 }

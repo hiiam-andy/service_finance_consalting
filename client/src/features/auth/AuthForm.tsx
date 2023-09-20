@@ -5,6 +5,7 @@ import { setIsAuth, setUser } from "./http/authSlice";
 import { useNavigate } from "react-router-dom";
 import { SHOP_ROUTE } from "../../utils/constats";
 import styles from "./styles/AuthForm.module.css";
+import MyButton from "../../components/myButton/MyButton";
 
 export default function AuthForm() {
   const navigate = useNavigate();
@@ -43,36 +44,45 @@ export default function AuthForm() {
   };
 
   return (
-    <div className={styles.form}>
-      <h1>{toggle ? "Авторизация" : "Регистрация"}</h1>
-      <div>
-        <input
-          placeholder="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          placeholder="пароль"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+    <div className={styles.form_wrapper}>
+      <div className={styles.form}>
+        <h1 className={styles.auth_heading}>
+          {toggle ? "Авторизация" : "Регистрация"}
+        </h1>
+        <div className={styles.input_wrapper}>
+          <input
+            className={styles.form_input}
+            placeholder="email*"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+        <div className={styles.input_wrapper}>
+          <input
+            className={styles.form_input}
+            placeholder="пароль*"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <div className={styles.form_toggle}>
+          {toggle ? "Нет аккаунта?" : "Есть аккаунт?"}{" "}
+          <span
+            className={styles.form_toggle__variant}
+            onClick={() => setToggle(!toggle)}
+            style={{ cursor: "pointer", color: "blue" }}
+          >
+            {toggle ? "Зарегистрировать" : "Войти"}
+          </span>
+        </div>
+        {toggle ? (
+          <MyButton onClick={() => loginUser(email, password)}>Войти</MyButton>
+        ) : (
+          <MyButton onClick={() => registrationUser(email, password)}>
+            Регистрация
+          </MyButton>
+        )}
       </div>
-      <div>
-        {toggle ? "Нет аккаунта?" : "Есть аккаунт?"}{" "}
-        <span
-          onClick={() => setToggle(!toggle)}
-          style={{ cursor: "pointer", color: "blue" }}
-        >
-          {toggle ? "Зарегистрировать" : "Войти"}
-        </span>
-      </div>
-      {toggle ? (
-        <button onClick={() => loginUser(email, password)}>Войти</button>
-      ) : (
-        <button onClick={() => registrationUser(email, password)}>
-          Регистрация
-        </button>
-      )}
     </div>
   );
 }

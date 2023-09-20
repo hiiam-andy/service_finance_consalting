@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../../app/hooks";
 import { TypesList, getTypes, setSelectedType } from "./TypeSlice";
+import styles from "./styles/Type.module.css";
 
 export default function TypesBar() {
   const types = useAppSelector(TypesList);
@@ -15,7 +16,7 @@ export default function TypesBar() {
       <strong>Выберите тип</strong>
       <ul>
         <li
-          style={{ border: "1px solid gray", cursor: "pointer" }}
+          className={styles.type_link}
           onClick={() => dispatch(setSelectedType(null))}
         >
           Показать все
@@ -23,7 +24,7 @@ export default function TypesBar() {
         {types.map((el) => (
           <li
             key={el.id}
-            style={{ border: "1px solid gray", cursor: "pointer" }}
+            className={styles.type_link}
             onClick={() => dispatch(setSelectedType(el.id))}
           >
             {el.name}

@@ -5,6 +5,7 @@ import {
   getBrands,
   setSelectedBrand,
 } from "./brandsApi/brandSlice";
+import styles from "./styles/Brand.module.css";
 
 export default function BrandsBar() {
   const brands = useAppSelector(BrandsList);
@@ -17,9 +18,9 @@ export default function BrandsBar() {
   return (
     <div>
       <strong>Выберите бренд</strong>
-      <ul style={{ display: "flex" }}>
+      <ul>
         <li
-          style={{ border: "1px solid gray", cursor: "pointer" }}
+          className={styles.brand_link}
           onClick={() => dispatch(setSelectedBrand(null))}
         >
           Показать все
@@ -27,7 +28,7 @@ export default function BrandsBar() {
         {brands.map((el) => (
           <li
             key={el.id}
-            style={{ border: "1px solid gray", cursor: "pointer" }}
+            className={styles.brand_link}
             onClick={() => dispatch(setSelectedBrand(el.id))}
           >
             {el.name}

@@ -38,7 +38,9 @@ export default function AddProduct() {
   };
 
   return (
-    <div>
+    <div
+      style={{ display: "flex", flexDirection: "column", maxWidth: "500px" }}
+    >
       <select
         value={typeValue}
         onChange={(e) => {

@@ -10,10 +10,12 @@ const App: FC = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    check().then((user) => {
-      dispatch(setIsAuth(true));
-      dispatch(setUser(user));
-    });
+    if (localStorage.getItem("token")) {
+      check().then((user) => {
+        dispatch(setIsAuth(true));
+        dispatch(setUser(user));
+      });
+    }
   }, [dispatch]);
 
   return (

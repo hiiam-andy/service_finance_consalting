@@ -16,7 +16,7 @@ export default function Header() {
   return (
     <div className={styles.header}>
       <NavLink to={SHOP_ROUTE} className={styles.logo}>
-        САМЫЙ КРАСИВЫЙ ЛОГОТИП
+        КРАСИВЫЙ ЛОГОТИП
       </NavLink>
       <nav>
         <NavLink to={AUTH_ROUTE} className={styles.link}>
