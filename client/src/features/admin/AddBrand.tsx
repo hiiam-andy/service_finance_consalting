@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import { addBrand } from "../shop/brands/brandsApi/brandsApi";
+import { useState } from "react";
+import { addBrand } from "../../components/brandBar/brandsApi/brandsApi";
+
 export default function AddBrand() {
   const [brand, setBrand] = useState("");
   return (

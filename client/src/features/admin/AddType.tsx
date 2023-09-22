@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { addType } from "../shop/types/typesApi/typesApi";
+import { addType } from "../../components/typeBar/typesApi/typesApi";
 
 export default function AddType() {
   const [type, setType] = useState("");

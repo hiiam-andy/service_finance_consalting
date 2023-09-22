@@ -1,8 +1,7 @@
-.card{
+.product-card{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border: 1px solid gray;
   border-radius: 10px;
   background-color: #fff;
   overflow: hidden;
@@ -11,10 +10,7 @@
 .image{
   object-fit: contain;
 }
-.card_description{
-  padding: 8px;
-}
-.card_price{
+.card_description__price{
   font-weight: 600;
   font-size: 20px;
   line-height: 28px;

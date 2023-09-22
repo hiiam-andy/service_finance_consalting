@@ -1,10 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
-import TypeSlice from "../features/shop/types/TypeSlice";
+
 import authSlice from "../features/auth/http/authSlice";
 import productsSlice from "../features/shop/products/productsSlice";
-import brandSlice from "../features/shop/brands/brandsApi/brandSlice";
+
 import cartSlice from "../features/cart/cartSlice";
 import productSlice from "../features/shop/products/productSlice";
+import TypeSlice from "../components/typeBar/TypeSlice";
+import brandSlice from "../components/brandBar/brandsApi/brandSlice";
+
 
 export const store = configureStore({
   reducer: {

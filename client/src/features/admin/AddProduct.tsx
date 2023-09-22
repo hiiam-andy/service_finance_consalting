@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useAppSelector } from "../../app/hooks";
-import { BrandsList } from "../shop/brands/brandsApi/brandSlice";
-import { TypesList } from "../shop/types/TypeSlice";
+
 import { addProduct } from "./adminApi/adminApi";
+import { TypesList } from "../../components/typeBar/TypeSlice";
+import { BrandsList } from "../../components/brandBar/brandsApi/brandSlice";
 
 export default function AddProduct() {
   const types = useAppSelector(TypesList);
@@ -14,7 +15,6 @@ export default function AddProduct() {
   const [price, setPrice] = useState("");
   const [info, setInfo] = useState("");
   const [quantity, setQuantity] = useState("");
-  // const [img, setImg] = useState(undefined);
 
   let img: File;
   const addImg = (e: any) => {

@@ -1,5 +1,6 @@
 import axios from "axios"
-import { BASE_URL } from "../../../../utils/constats"
+import { BASE_URL } from "../../../utils/constats"
+
 
 export const addBrand = async (name: string) => {
   try {

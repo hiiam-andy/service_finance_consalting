@@ -1,11 +1,8 @@
-.container{
-  display: flex;
-  flex-direction: column;
-}
 .pageShop{
   display: flex;
   background-color: #edeaea;
   margin-right: auto;
   margin-left: auto;
+  max-width: 1024px;
   height: 94vh;
 }

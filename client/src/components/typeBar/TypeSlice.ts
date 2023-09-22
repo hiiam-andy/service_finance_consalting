@@ -1,7 +1,9 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { BASE_URL } from "../../../utils/constats";
+
 import axios from "axios";
-import { RootState } from "../../../app/store";
+import { BASE_URL } from "../../utils/constats";
+import { RootState } from "../../app/store";
+
 
 interface TypesSlice {
   list: [{

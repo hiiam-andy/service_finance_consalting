@@ -1,22 +1,25 @@
+import BrandsBar from "../../components/brandBar/BrandsBar";
 import Header from "../../components/header/Header";
-import BrandsBar from "./brands/BrandsBar";
+import TypesBar from "../../components/typeBar/TypesBar";
+
 import Products from "./products/Products";
-import TypesBar from "./types/TypesBar";
+
 import styles from "./styles/PageShop.module.css";
+import { Container } from "@mui/material";
 
 export default function PageShop() {
   return (
-    <div className={styles.container}>
+    <>
       <Header />
       <div className={styles.pageShop}>
-        <div>
+        <aside>
           <TypesBar />
           <BrandsBar />
-        </div>
-        <div style={{ marginLeft: "15px" }}>
+        </aside>
+        <Container>
           <Products />
-        </div>
+        </Container>
       </div>
-    </div>
+    </>
   );
 }

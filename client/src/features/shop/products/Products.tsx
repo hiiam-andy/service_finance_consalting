@@ -4,8 +4,8 @@ import { ProductList, getProducts } from "./productsSlice";
 import { ProductCard } from "./ProductCard";
 
 import styles from "./styles/Products.module.css";
-import { selectedTypesList } from "../types/TypeSlice";
-import { selectedBrandsList } from "../brands/brandsApi/brandSlice";
+import { selectedTypesList } from "../../../components/typeBar/TypeSlice";
+import { selectedBrandsList } from "../../../components/brandBar/brandsApi/brandSlice";
 
 export default function Products() {
   const dispatch = useAppDispatch();

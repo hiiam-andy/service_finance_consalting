@@ -43,7 +43,6 @@ export const getProducts = createAsyncThunk(
       const res = await axios(`${BASE_URL}/api/product`, {
         params: { typeId, brandId, limit, page }
       });
-
       return res.data;
     } catch (err) {
       console.log(err);

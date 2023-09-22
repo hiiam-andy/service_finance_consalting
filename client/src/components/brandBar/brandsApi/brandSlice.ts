@@ -1,7 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { RootState } from "../../../../app/store";
-import { BASE_URL } from "../../../../utils/constats";
+import { BASE_URL } from "../../../utils/constats";
+import { RootState } from "../../../app/store";
+
 
 
 interface BrandSlice {
