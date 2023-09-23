@@ -10,6 +10,7 @@ import {
   CardActions,
   CardContent,
   CardMedia,
+  Container,
   Typography,
 } from "@mui/material";
 
@@ -20,14 +21,13 @@ export default function Product() {
     dispatch(getProduct(Number(id)));
   }, [dispatch, id]);
   const product: any = useAppSelector(OneProductList);
-  console.log(product);
 
   return (
-    <div>
+    <Container>
       <Card sx={{ display: "flex" }}>
         <CardMedia
           component="img"
-          sx={{ width: 151 }}
+          sx={{ width: 500 }}
           image={`${BASE_URL}/${product.img}`}
           alt="product image"
         />
@@ -64,6 +64,6 @@ export default function Product() {
           </CardActions>
         </Box>
       </Card>
-    </div>
+    </Container>
   );
 }

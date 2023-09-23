@@ -1,4 +1,3 @@
-import React from "react";
 import { NavLink } from "react-router-dom";
 import {
   ADMIN_ROUTE,
@@ -6,13 +5,15 @@ import {
   CART_ROUTE,
   SHOP_ROUTE,
 } from "../../utils/constats";
-import styles from "./Header.module.css";
 import { useAppSelector } from "../../app/hooks";
 import { user } from "../../features/auth/http/authSlice";
 import { IconButton, styled } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Badge, { BadgeProps } from "@mui/material/Badge";
-import { CartList } from "../../features/cart/cartSlice";
+
+import LOGO from "../../utils/pngwing.com.png";
+import styles from "./Header.module.css";
+
 const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
   "& .MuiBadge-badge": {
     right: -3,
@@ -24,12 +25,12 @@ const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
 
 export default function Header() {
   const userList = useAppSelector(user);
-  const cart = useAppSelector(CartList);
 
   return (
     <div className={styles.header}>
       <NavLink to={SHOP_ROUTE} className={styles.logo}>
-        КРАСИВЫЙ ЛОГОТИП
+        <img src={LOGO} alt="logo" style={{ maxHeight: "50px" }} />
+        КРАСИВОЕ НАЗВАНИЕ МАГАЗИНА
       </NavLink>
       <nav>
         <NavLink to={AUTH_ROUTE} className={styles.link}>
@@ -38,7 +39,7 @@ export default function Header() {
         <NavLink to={CART_ROUTE} className={styles.link}>
           <span>Корзина</span>
           <IconButton aria-label="cart" disabled>
-            <StyledBadge badgeContent={cart.length} color="secondary">
+            <StyledBadge badgeContent={0} color="secondary">
               <ShoppingCartIcon />
             </StyledBadge>
           </IconButton>

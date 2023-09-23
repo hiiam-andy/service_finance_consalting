@@ -1,19 +1,19 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { BASE_URL } from "../../utils/constats";
-import { RootState } from "../../app/store";
-import { $authHost } from "../../utils/interceptor";
+import { BASE_URL } from "../../../utils/constats";
+import { RootState } from "../../../app/store";
+import { $authHost } from "../../../utils/interceptor";
 
 interface cartType {
   list: [{
-    id: number,
+    id?: number | null,
     productId?: number,
     quantity?: number,
     userId?: number
-  }]
+  }] | []
 }
 
 const initialState: cartType = {
-  list: [{ id: 0 }]
+  list: []
 }
 
 export const getCart = createAsyncThunk(
@@ -29,6 +29,7 @@ export const getCart = createAsyncThunk(
     }
   }
 )
+
 
 const cartSlice = createSlice({
   name: 'cart',
