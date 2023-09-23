@@ -1,19 +1,21 @@
 import React from "react";
-import { useAppSelector } from "../../app/hooks";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { CartList } from "./cartSlice";
+import { getProduct } from "../product/productSlice";
 
 export default function Cart() {
   const cart = useAppSelector(CartList);
-  let res;
+  const dispatch = useAppDispatch();
+
+  console.log(cart[0]);
+
+  let res: any;
   if (cart.length > 0) {
-    res = cart.map((el) => (
-      <ul>
-        <li key={el.id} style={{ border: "1px solid gray", cursor: "pointer" }}>
-          должен быть продукт с айди {el.productId}
-        </li>
-      </ul>
-    ));
+    res = cart.map((el) => {
+      dispatch(getProduct(Number(el.productId)));
+      return <div>{}</div>;
+    });
   }
 
-  return <div>{res}</div>;
+  return <ul>{res}</ul>;
 }

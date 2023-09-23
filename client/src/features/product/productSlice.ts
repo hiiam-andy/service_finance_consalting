@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { BASE_URL } from "../../../utils/constats";
-import { RootState } from "../../../app/store";
+import { BASE_URL } from "../../utils/constats";
+import { RootState } from "../../app/store";
 
 interface productType {
   list: [{
@@ -29,34 +29,30 @@ const initialState: productType = {
   }]
 }
 
-
-
 export const getProduct = createAsyncThunk(
   "product/getProduct",
-  async (brandId: number) => {
+  async (id: number, thunkAPI) => {
     try {
-      const res = await axios(`${BASE_URL}/api/product/${brandId}`, {
-        params: { brandId }
-      });
+      const res = await axios(`${BASE_URL}/api/product/${id}`);
       return res.data;
     } catch (err) {
       console.log(err);
-
+      return thunkAPI.rejectWithValue(err)
     }
   }
 );
 
-const eventsSlice = createSlice({
+const productSlice = createSlice({
   name: "product",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(getProduct.fulfilled, (state, action) => {
-      state.list = action.payload;
+      state.list = action.payload
     });
   },
 });
 
 export const OneProductList = (state: RootState) => state.product.list
 
-export default eventsSlice.reducer;
+export default productSlice.reducer;

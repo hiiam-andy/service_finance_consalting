@@ -31,7 +31,6 @@ export const check = async () => {
           Authorization: `Bearer ${localStorage.getItem('token')}`
         }
       })
-    console.log(res)
     localStorage.setItem("token", res.data.token);
     return jwt_decode(res.data.token);
   } catch (error) {
