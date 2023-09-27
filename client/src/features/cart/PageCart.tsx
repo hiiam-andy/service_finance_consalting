@@ -18,7 +18,7 @@ export default function PageCart() {
   const cart = useAppSelector(CartList);
   const res = cart.map((el) => {
     return (
-      <ul style={{ border: "1px solid grey" }}>
+      <ul key={el.id} style={{ border: "1px solid grey" }}>
         <li> товар с айди {el.productId}</li>
         <li>количество товара {el.quantity}</li>
       </ul>

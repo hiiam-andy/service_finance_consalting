@@ -8,6 +8,7 @@ import TypeSlice from "../components/typeBar/TypeSlice";
 import brandSlice from "../components/brandBar/brandsApi/brandSlice";
 
 
+
 export const store = configureStore({
   reducer: {
     types: TypeSlice,

@@ -20,7 +20,7 @@ export default function Product() {
   useEffect(() => {
     dispatch(getProduct(Number(id)));
   }, [dispatch, id]);
-  const product: any = useAppSelector(OneProductList);
+  const product: any = useAppSelector(OneProductList) ?? [];
 
   return (
     <Container>
@@ -28,7 +28,7 @@ export default function Product() {
         <CardMedia
           component="img"
           sx={{ width: 500 }}
-          image={`${BASE_URL}/${product.img}`}
+          image={`${BASE_URL}/${product?.img}`}
           alt="product image"
         />
         <Box sx={{ display: "flex", flexDirection: "column" }}>
