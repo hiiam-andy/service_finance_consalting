@@ -26,7 +26,6 @@ const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
 export default function Header() {
   const userList = useAppSelector(user);
   const isAuth = useAppSelector(userIsAuth);
-  console.log(isAuth);
 
   return (
     <div className={styles.header}>

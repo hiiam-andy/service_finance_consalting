@@ -5,7 +5,7 @@ import { setIsAuth, setUser } from "./http/authSlice";
 import { useNavigate } from "react-router-dom";
 import { SHOP_ROUTE } from "../../utils/constats";
 import styles from "./styles/AuthForm.module.css";
-import MyButton from "../../components/myButton/MyButton";
+import MyButton from "../../shared/UI/myButton/MyButton";
 
 export default function AuthForm() {
   const navigate = useNavigate();

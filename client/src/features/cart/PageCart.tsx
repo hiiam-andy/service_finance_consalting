@@ -5,6 +5,7 @@ import { CartList, getCart } from "./cartApi/cartSlice";
 
 import jwt_decode from "jwt-decode";
 import Cart from "./Cart";
+import ProductCartCard from "../shop/products/ProductCartCard";
 
 export default function PageCart() {
   const dispatch = useAppDispatch();
@@ -18,10 +19,15 @@ export default function PageCart() {
   const cart = useAppSelector(CartList);
   const res = cart.map((el) => {
     return (
-      <ul key={el.id} style={{ border: "1px solid grey" }}>
-        <li> товар с айди {el.productId}</li>
-        <li>количество товара {el.quantity}</li>
-      </ul>
+      <ProductCartCard
+        key={el.id}
+        id={el.id}
+        name={el.name}
+        img={el.img}
+        info={el.info}
+        price={el.price}
+        quantity={el.quantity}
+      />
     );
   });
 

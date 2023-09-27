@@ -5,10 +5,12 @@ import { $authHost } from "../../../utils/interceptor";
 
 interface cartType {
   list: [{
-    id?: number | null,
-    productId?: number,
-    quantity?: number,
-    userId?: number
+    id: number,
+    name: string,
+    info: string,
+    quantity: number,
+    price: number,
+    img: string
   }] | []
 }
 

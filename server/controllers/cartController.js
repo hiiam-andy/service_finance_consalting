@@ -17,10 +17,18 @@ class cartController {
       return res.status(500).json({ message: "Что-то пошло не так" });
     }
   }
+
+  // SELECT products.id,products.name, products.price, products.img, products.info, products.quantity FROM products RIGHT JOIN carts ON products.id=carts.productId
   async getCart(req, res) {
     const { userId } = req.query;
     try {
-      const cartItem = await Cart.findAll({ where: { userId } });
+      const cartItem = await Product.findAll({
+        attributes: ["id", "name", "price", "img", "info", "quantity"],
+        include: {
+          model: Cart,
+          required: true,
+        },
+      });
       return res.json(cartItem);
     } catch (err) {
       return res.json({ message: "Что-то пошло не так" });
