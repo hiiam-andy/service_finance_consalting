@@ -18,7 +18,8 @@ class cartController {
     }
   }
 
-  // SELECT products.id,products.name, products.price, products.img, products.info, products.quantity FROM products RIGHT JOIN carts ON products.id=carts.productId
+  // SELECT products.id,products.name, products.price FROM products RIGHT JOIN carts
+  // ON products.id=carts.productId AND userId=11 WHERE products.id is not null
   async getCart(req, res) {
     const { userId } = req.query;
     try {
@@ -27,6 +28,7 @@ class cartController {
         include: {
           model: Cart,
           required: true,
+          where: { userId },
         },
       });
       return res.json(cartItem);
